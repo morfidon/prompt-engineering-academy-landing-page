@@ -103,10 +103,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const floatingCtaClose = document.querySelector('.floating-cta-close');
     const joinSection = document.getElementById('join');
 
-    if (floatingCta) {
-        floatingCta.style.display = 'none';
-    }
-
     console.log('Floating CTA Debug:', {
         floatingCta: !!floatingCta,
         floatingCtaClose: !!floatingCtaClose,
@@ -176,7 +172,11 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
         const shouldShow = shouldShowFloatingCta();
-        floatingCta.style.display = shouldShow ? 'flex' : 'none';
+        if (shouldShow) {
+            floatingCta.style.display = 'flex';
+        } else {
+            floatingCta.style.display = 'none';
+        }
     };
 
     if (floatingCtaClose) {
