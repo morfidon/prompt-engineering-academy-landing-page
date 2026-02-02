@@ -154,4 +154,8 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', updateFloatingCta, { passive: true });
     window.addEventListener('resize', updateFloatingCta);
     updateFloatingCta();
+
+    window.addEventListener('scroll', updateFloatingCta, { passive: true });
+    window.addEventListener('resize', updateFloatingCta);
+    updateFloatingCta();
 });
