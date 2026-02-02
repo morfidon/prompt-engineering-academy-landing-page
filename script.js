@@ -102,6 +102,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const floatingCtaClose = document.querySelector('.floating-cta-close');
     const joinSection = document.getElementById('join');
 
+    console.log('Floating CTA elements:', {
+        floatingCta,
+        floatingCtaClose,
+        joinSection
+    });
+
     const storageKey = 'floatingCtaDismissed';
     const isDismissed = () => {
         try {
@@ -112,14 +118,18 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const dismiss = () => {
+        console.log('Dismiss function called');
         if (!floatingCta) {
+            console.log('Floating CTA element not found');
             return;
         }
+        console.log('Hiding floating CTA');
         floatingCta.hidden = true;
         try {
             window.localStorage.setItem(storageKey, '1');
-        } catch {
-            // ignore
+            console.log('Dismissal saved to localStorage');
+        } catch (error) {
+            console.log('Failed to save to localStorage:', error);
         }
     };
 
@@ -148,7 +158,14 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     if (floatingCtaClose) {
-        floatingCtaClose.addEventListener('click', dismiss);
+        console.log('Adding click listener to close button');
+        floatingCtaClose.addEventListener('click', (e) => {
+            console.log('Close button clicked', e);
+            e.preventDefault();
+            dismiss();
+        });
+    } else {
+        console.log('Close button element not found');
     }
 
     window.addEventListener('scroll', updateFloatingCta, { passive: true });
