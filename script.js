@@ -98,6 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
+    // Floating CTA functionality
     const floatingCta = document.getElementById('floatingCta');
     const floatingCtaClose = document.querySelector('.floating-cta-close');
     const joinSection = document.getElementById('join');
