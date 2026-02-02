@@ -108,6 +108,17 @@ document.addEventListener('DOMContentLoaded', () => {
         joinSection: !!joinSection
     });
 
+    // Enhanced element inspection
+    if (floatingCtaClose) {
+        console.log('Button element details:', {
+            tagName: floatingCtaClose.tagName,
+            className: floatingCtaClose.className,
+            disabled: floatingCtaClose.disabled,
+            style: floatingCtaClose.style.cssText,
+            computedStyle: window.getComputedStyle(floatingCtaClose)?.pointerEvents
+        });
+    }
+
     const storageKey = 'floatingCtaDismissed';
     const isDismissed = () => {
         try {
@@ -118,14 +129,19 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const dismiss = () => {
-        console.log('Dismiss function called');
+        console.log('DISMISS CALLED - Alternative method');
         if (!floatingCta) {
             console.log('Floating CTA element not found');
             return;
         }
-        console.log('Hiding floating CTA - current hidden state:', floatingCta.hidden);
+        
+        // Try multiple hiding methods
+        console.log('Applying all hide methods');
+        floatingCta.style.display = 'none';
+        floatingCta.style.visibility = 'hidden';
         floatingCta.hidden = true;
-        console.log('Floating CTA hidden - new state:', floatingCta.hidden);
+        floatingCta.style.opacity = '0';
+        
         try {
             window.localStorage.setItem(storageKey, '1');
             console.log('Saved to localStorage');
@@ -159,11 +175,28 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     if (floatingCtaClose) {
-        console.log('Adding click listener to close button');
-        floatingCtaClose.addEventListener('click', (e) => {
-            console.log('Close button clicked!', e);
+        console.log('Adding enhanced event listeners to close button');
+        
+        // Test 1: Basic click detection with visual feedback
+        floatingCtaClose.addEventListener('click', function(e) {
+            console.log('CLICK DETECTED!', e);
+            alert('Button clicked! This confirms the click is working.');
             dismiss();
         });
+        
+        // Test 2: Mouse events for debugging
+        floatingCtaClose.addEventListener('mousedown', function(e) {
+            console.log('MOUSE DOWN on close button', e);
+        });
+        
+        floatingCtaClose.addEventListener('mouseup', function(e) {
+            console.log('MOUSE UP on close button', e);
+        });
+        
+        floatingCtaClose.addEventListener('mouseover', function(e) {
+            console.log('MOUSE OVER on close button - hover working');
+        });
+        
     } else {
         console.log('Close button element not found!');
     }
