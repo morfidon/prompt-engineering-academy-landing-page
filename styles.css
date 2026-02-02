@@ -253,8 +253,50 @@ body {
     border: 2px solid #f59e0b;
 }
 
-.feature-box .emoji {
-    font-size: 1.5rem;
+.feature-box .icon-feature {
+    flex-shrink: 0;
+}
+
+.icon-inline {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 4px;
+}
+
+.icon-star {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.icon-check {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 6px;
+    flex-shrink: 0;
+}
+
+.icon-person {
+    color: var(--text-dark);
+}
+
+.stars {
+    display: flex;
+    gap: 2px;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.proof-text .icon-inline {
+    color: #f59e0b;
+}
+
+.section-label .icon-inline {
+    color: #f59e0b;
+}
+
+.feature-benefits li {
+    display: flex;
+    align-items: flex-start;
 }
 
 .feature-box p {
