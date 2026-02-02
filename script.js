@@ -103,6 +103,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const floatingCtaClose = document.querySelector('.floating-cta-close');
     const joinSection = document.getElementById('join');
 
+    console.log('Floating CTA Debug:', {
+        floatingCta: !!floatingCta,
+        floatingCtaClose: !!floatingCtaClose,
+        joinSection: !!joinSection,
+        scrollY: window.scrollY
+    });
+
     const storageKey = 'floatingCtaDismissed';
     const isDismissed = () => {
         try {
@@ -113,32 +120,51 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const dismiss = () => {
+        console.log('DISMISS FUNCTION CALLED!');
         if (!floatingCta) {
+            console.log('ERROR: floatingCta element not found');
             return;
         }
+        console.log('Hiding floating CTA');
         floatingCta.hidden = true;
         try {
             window.localStorage.setItem(storageKey, '1');
-        } catch {
-            // ignore
+            console.log('Saved to localStorage');
+        } catch (error) {
+            console.log('Failed to save to localStorage:', error);
         }
     };
 
     const shouldShowFloatingCta = () => {
+        console.log('Checking shouldShowFloatingCta:', {
+            hasFloatingCta: !!floatingCta,
+            hasJoinSection: !!joinSection,
+            isDismissed: isDismissed(),
+            scrollY: window.scrollY,
+            needsScroll: window.scrollY > 500
+        });
+        
         if (!floatingCta || !joinSection) {
+            console.log('Missing elements, returning false');
             return false;
         }
         if (isDismissed()) {
+            console.log('Already dismissed, returning false');
             return false;
         }
 
         const rect = joinSection.getBoundingClientRect();
         const joinIsVisible = rect.top < window.innerHeight && rect.bottom > 0;
+        console.log('Join section visibility:', { rect, joinIsVisible });
+        
         if (joinIsVisible) {
+            console.log('Join section visible, returning false');
             return false;
         }
 
-        return window.scrollY > 500;
+        const shouldShow = window.scrollY > 500;
+        console.log('Should show CTA:', shouldShow);
+        return shouldShow;
     };
 
     const updateFloatingCta = () => {
@@ -149,7 +175,14 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     if (floatingCtaClose) {
-        floatingCtaClose.addEventListener('click', dismiss);
+        console.log('Adding click listener to close button');
+        floatingCtaClose.addEventListener('click', function(e) {
+            console.log('CLOSE BUTTON CLICKED!', e);
+            e.preventDefault();
+            dismiss();
+        });
+    } else {
+        console.log('ERROR: Close button not found!');
     }
 
     window.addEventListener('scroll', updateFloatingCta, { passive: true });
