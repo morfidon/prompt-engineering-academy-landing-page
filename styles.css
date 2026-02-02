@@ -1,0 +1,567 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #2d3748;
+    --secondary-color: #4a5568;
+    --accent-color: #3182ce;
+    --light-bg: #f7fafc;
+    --sage-green: #d4e4d4;
+    --cream: #fef3c7;
+    --text-dark: #1a202c;
+    --text-light: #4a5568;
+    --border-color: #e2e8f0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: #ffffff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.hero {
+    background-color: var(--sage-green);
+    padding: 80px 20px;
+    min-height: 500px;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+.hero-text {
+    flex: 1;
+    max-width: 600px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    color: var(--text-dark);
+    font-weight: 400;
+}
+
+.hero-image {
+    flex: 0 0 300px;
+}
+
+.placeholder-image {
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 120px;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--text-dark);
+    color: white;
+    padding: 16px 40px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid var(--text-dark);
+}
+
+.cta-button:hover {
+    background-color: transparent;
+    color: var(--text-dark);
+    transform: translateY(-2px);
+}
+
+.cta-button.large {
+    padding: 20px 60px;
+    font-size: 1.3rem;
+}
+
+.social-proof {
+    padding: 60px 20px;
+    background-color: white;
+    text-align: center;
+}
+
+.proof-text {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 40px;
+    color: var(--text-dark);
+}
+
+.testimonials-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.testimonial-card {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+}
+
+.stars {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #fbbf24;
+}
+
+.testimonial-text {
+    font-style: italic;
+    margin-bottom: 15px;
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+.reviewer-name {
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.pain-points {
+    padding: 80px 20px;
+    background-color: var(--light-bg);
+}
+
+.pain-points h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    text-align: center;
+    color: var(--text-dark);
+}
+
+.pain-list p {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    color: var(--text-light);
+    line-height: 1.8;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.benefits {
+    padding: 80px 20px;
+    background-color: white;
+}
+
+.benefits h2 {
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+    text-align: center;
+    color: var(--text-dark);
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+}
+
+.benefit-card {
+    padding: 30px;
+    background: var(--light-bg);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.benefit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.benefit-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: var(--text-dark);
+}
+
+.benefit-card p {
+    color: var(--text-light);
+    line-height: 1.7;
+}
+
+.membership-goal {
+    padding: 80px 20px;
+    background-color: var(--light-bg);
+}
+
+.membership-goal h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    text-align: center;
+    color: var(--text-dark);
+}
+
+.goal-description {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--text-light);
+    max-width: 800px;
+    margin: 0 auto 50px;
+    line-height: 1.8;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.feature-box {
+    background: var(--cream);
+    padding: 25px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border: 2px solid #f59e0b;
+}
+
+.feature-box .emoji {
+    font-size: 1.5rem;
+}
+
+.feature-box p {
+    flex: 1;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.testimonials-section {
+    padding: 60px 20px;
+    background-color: white;
+}
+
+.section-label {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--text-dark);
+}
+
+.level-up {
+    padding: 60px 20px;
+    background-color: var(--light-bg);
+    text-align: center;
+}
+
+.level-up h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+}
+
+.level-up-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.key-features {
+    padding: 80px 20px;
+    background-color: white;
+}
+
+.feature-detail {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    margin-bottom: 80px;
+}
+
+.feature-detail.reverse {
+    flex-direction: row-reverse;
+}
+
+.feature-text {
+    flex: 1;
+}
+
+.feature-text h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: var(--text-dark);
+}
+
+.feature-text h4 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--accent-color);
+}
+
+.feature-text p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: var(--text-light);
+    line-height: 1.7;
+}
+
+.feature-benefits {
+    list-style: none;
+    margin-top: 25px;
+}
+
+.feature-benefits li {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    color: var(--text-dark);
+    padding-left: 10px;
+}
+
+.feature-image {
+    flex: 0 0 400px;
+}
+
+.placeholder-feature {
+    width: 400px;
+    height: 300px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    padding: 20px;
+}
+
+.final-testimonial {
+    padding: 60px 20px;
+    background-color: var(--light-bg);
+}
+
+.testimonial-card.large {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 40px;
+}
+
+.join-section {
+    padding: 80px 20px;
+    background-color: white;
+    text-align: center;
+}
+
+.join-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: var(--text-dark);
+}
+
+.membership-box {
+    background: var(--cream);
+    padding: 60px 40px;
+    border-radius: 15px;
+    max-width: 600px;
+    margin: 0 auto;
+    border: 3px solid #f59e0b;
+}
+
+.membership-box h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+    line-height: 1.3;
+}
+
+.membership-description {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+.faq {
+    padding: 80px 20px;
+    background-color: var(--light-bg);
+}
+
+.faq h2 {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    text-align: center;
+    color: var(--text-dark);
+}
+
+.faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background: white;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.faq-question {
+    padding: 25px 30px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.faq-question:hover {
+    background-color: var(--light-bg);
+}
+
+.faq-question h4 {
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+.faq-toggle {
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--accent-color);
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-toggle {
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    padding: 0 30px;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 500px;
+    padding: 0 30px 25px;
+}
+
+.faq-answer p {
+    color: var(--text-light);
+    line-height: 1.7;
+    font-size: 1.05rem;
+}
+
+footer {
+    padding: 40px 20px;
+    background-color: var(--text-dark);
+    color: white;
+    text-align: center;
+}
+
+footer p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    opacity: 0.8;
+}
+
+@media (max-width: 968px) {
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.3rem;
+    }
+
+    .feature-detail,
+    .feature-detail.reverse {
+        flex-direction: column;
+    }
+
+    .feature-image,
+    .placeholder-feature {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .hero {
+        padding: 60px 20px;
+    }
+
+    .pain-points h2,
+    .benefits h2,
+    .membership-goal h2,
+    .join-section h2,
+    .faq h2 {
+        font-size: 2rem;
+    }
+
+    .testimonials-row {
+        grid-template-columns: 1fr;
+    }
+
+    .membership-box {
+        padding: 40px 25px;
+    }
+
+    .cta-button.large {
+        padding: 18px 40px;
+        font-size: 1.1rem;
+    }
+}
