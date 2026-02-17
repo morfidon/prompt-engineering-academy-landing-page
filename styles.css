@@ -2099,6 +2099,21 @@ footer p {
     gap: 8px;
 }
 
+.prompt-icon {
+    flex-shrink: 0;
+    stroke-width: 2;
+}
+
+.before-icon {
+    color: #dc2626;
+    stroke: #dc2626;
+}
+
+.after-icon {
+    color: #16a34a;
+    stroke: #16a34a;
+}
+
 .before-prompt .prompt-label {
     color: #dc2626;
 }
