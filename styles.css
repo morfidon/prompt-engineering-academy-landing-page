@@ -7,26 +7,38 @@
 }
 
 :root {
-    /* Learn Community inspired lighter, professional palette */
-    --primary-color: #152021;     /* Dark but not harsh text */
-    --secondary-color: #369b84;   /* Single teal accent instead of indigo */
-    --accent-color: #369b84;      /* Consistent teal accent */
-    --accent-hover: #2c7d6a;      /* Darker teal for hover */
+    /* Learn Community exact color palette */
+    --primary-color: #152021;     /* rgb(21, 32, 33) - their dark */
+    --secondary-color: #369b84;   /* Teal accent */
+    --accent-color: #369b84;      
+    --accent-hover: #2c7d6a;      
     --success-color: #22c55e;
     --warning-color: #f59e0b;
     --error-color: #ef4444;
-    --light-bg: #f5f5f5;          /* Light gray like Learn Community */
-    --hero-bg: #ffffff;           /* Clean white hero, no gradient */
+    
+    /* Learn Community background colors */
+    --light-bg: #f5f5f5;          
+    --hero-bg: #152021;           /* Dark hero like theirs */
     --card-bg: #ffffff;
-    --text-dark: #152021;         /* Softer dark text */
-    --text-light: #64748b;        /* Muted secondary text */
+    --section-light-1: #e0eaea;   /* rgb(224, 234, 235) */
+    --section-light-2: #edf5f3;   /* rgb(237, 245, 243) */
+    --section-light-3: #e2f0f8;   /* rgb(226, 240, 248) */
+    
+    /* Learn Community gradients */
+    --gradient-1: linear-gradient(rgb(255, 255, 255) 0%, rgb(237, 245, 243) 100%);
+    --gradient-2: linear-gradient(rgb(226, 240, 248) 0%, rgb(255, 255, 255) 100%);
+    --gradient-3: linear-gradient(rgb(255, 255, 255) 0%, rgb(25, 28, 28) 100%);
+    --gradient-4: linear-gradient(rgb(25, 28, 28) 0%, rgb(227, 245, 254) 81.6817%, rgb(226, 240, 248) 100%);
+    
+    --text-dark: #152021;         
+    --text-light: #64748b;        
     --border-color: #e2e8f0;
     --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
     --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.08), 0 2px 4px -2px rgb(0 0 0 / 0.08);
     --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.08), 0 4px 6px -4px rgb(0 0 0 / 0.08);
     --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.08), 0 8px 10px -6px rgb(0 0 0 / 0.08);
-    --section-spacing: 120px;   /* More breathing room like Learn Community */
-    --focus-ring: rgba(54, 155, 132, 0.45); /* Teal focus ring */
+    --section-spacing: 120px;   
+    --focus-ring: rgba(54, 155, 132, 0.45); 
     --border-radius: 12px;
     --border-radius-lg: 16px;
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -122,7 +134,7 @@ body {
 }
 
 .hero {
-    background: #ffffff; /* Clean white like Learn Community */
+    background: var(--hero-bg); /* Dark hero like Learn Community */
     padding: 140px 20px 100px; /* Account for fixed nav */
     border-bottom: 1px solid var(--border-color);
 }
@@ -144,13 +156,13 @@ body {
     font-weight: 700; /* Slightly lighter for better readability */
     line-height: 1.1;
     margin-bottom: 1.5rem; /* More spacing */
-    color: var(--text-dark);
+    color: #ffffff; /* White text on dark background */
 }
 
 .hero-subtitle {
     font-size: 1.5rem;
     margin-bottom: 30px;
-    color: var(--text-dark);
+    color: #ffffff; /* White text on dark background */
 }
 
  .cta-group {
@@ -421,7 +433,7 @@ body {
 
 .benefits {
     padding: 120px 20px; /* More spacing like Learn Community */
-    background-color: white;
+    background: var(--gradient-2); /* Learn Community gradient 2 */
 }
 
 .benefits h2 {
@@ -1344,7 +1356,7 @@ footer p {
 /* Author Section */
 .author-section {
     padding: 100px 0;
-    background: #ffffff; /* Clean white like Learn Community */
+    background: var(--gradient-1); /* Learn Community gradient 1 */
     border-top: 1px solid var(--border-color);
 }
 
@@ -1643,7 +1655,7 @@ footer p {
 /* Who This Is For Section */
 .who-this-is-for {
     padding: 120px 0; /* More spacing like Learn Community */
-    background: #ffffff; /* Clean white like Learn Community */
+    background: var(--section-light-1); /* Light gray like Learn Community section 1 */
     border-top: 1px solid var(--border-color);
 }
 
@@ -1981,7 +1993,7 @@ footer p {
 /* Before/After Section */
 .before-after-section {
     padding: 100px 0;
-    background: #f5f5f5; /* Simple light gray like Learn Community */
+    background: var(--gradient-3); /* Learn Community gradient 3 */
     border-top: 1px solid var(--border-color);
 }
 
@@ -2531,7 +2543,7 @@ footer p {
 /* Not Sure If This Is For You Section */
 .not-sure-section {
     padding: 80px 0;
-    background: #ffffff; /* Clean white like Learn Community */
+    background: var(--gradient-4); /* Learn Community gradient 4 */
     border-top: 1px solid var(--border-color);
     border-bottom: 1px solid var(--border-color);
 }
