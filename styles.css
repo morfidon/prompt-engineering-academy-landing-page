@@ -7,25 +7,32 @@
 }
 
 :root {
-    --primary-color: #1e3a5f;
-    --secondary-color: #2563eb;
-    --accent-color: #3b82f6;
+    /* More premium color palette */
+    --primary-color: #0f172a;
+    --secondary-color: #4f46e5; /* Indigo-600 */
+    --accent-color: #6366f1;    /* Indigo-500 */
+    --accent-hover: #4338ca;    /* Indigo-700 */
     --light-bg: #f8fafc;
-    --hero-bg: #e0f2fe;
-    --cream: #fef3c7;
-    --text-dark: #0f172a;
-    --text-light: #475569;
+    --hero-bg: #eef2ff;         /* Very light indigo */
+    --card-bg: #ffffff;
+    --text-dark: #1e293b;       /* Slate-800 (softer than pure black) */
+    --text-light: #64748b;      /* Slate-500 */
     --border-color: #e2e8f0;
-    --success-color: #22c55e;
-    --section-spacing: 80px;
-    --focus-ring: rgba(59, 130, 246, 0.45);
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --section-spacing: 100px;   /* More breathing room */
+    --focus-ring: rgba(99, 102, 241, 0.45);
 }
 
+/* Add a subtle grain or gradient to the body */
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.6;
     color: var(--text-dark);
     background-color: #ffffff;
+    background-image: radial-gradient(#e0e7ff 1px, transparent 1px);
+    background-size: 32px 32px; /* Subtle dot pattern */
 }
 
  .skip-link {
@@ -108,9 +115,9 @@ body {
 }
 
 .hero {
-    background: linear-gradient(135deg, var(--hero-bg) 0%, #dbeafe 100%);
-    padding: 120px 20px 80px;
-    min-height: 500px;
+    background: linear-gradient(180deg, rgba(255,255,255,0) 0%, #eef2ff 100%);
+    padding: 140px 20px 100px; /* Account for fixed nav */
+    border-bottom: 1px solid var(--border-color);
 }
 
 .hero-content {
@@ -126,12 +133,15 @@ body {
 }
 
 .hero h1 {
-    font-size: 3.25rem;
+    font-size: 3.5rem;
     font-weight: 800;
     line-height: 1.12;
-    margin-bottom: 20px;
-    color: var(--text-dark);
-    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+    letter-spacing: -0.04em; /* Tighter, more modern */
+    background: linear-gradient(to right, #1e293b, #4f46e5);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* Gradient text */
 }
 
 .hero-subtitle {
@@ -156,13 +166,35 @@ body {
 .placeholder-image {
     width: 300px;
     height: 300px;
-    background: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-color) 100%);
-    border-radius: 16px;
+    background: white;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-lg);
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 120px;
-    box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3);
+}
+
+/* Pseudo-elements to simulate chat bubbles */
+.placeholder-image::before {
+    content: "";
+    position: absolute;
+    top: 60px; left: 20px;
+    width: 60%; height: 12px;
+    background: #e2e8f0;
+    border-radius: 6px;
+    box-shadow: 0 20px 0 #e2e8f0; /* Second line */
+}
+.placeholder-image::after {
+    content: "";
+    position: absolute;
+    top: 120px; right: 20px;
+    width: 70%; height: 40px;
+    background: var(--hero-bg);
+    border-radius: 8px;
+    border: 1px solid #c7d2fe;
 }
 
 .cta-button {
@@ -179,10 +211,9 @@ body {
     box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
 }
 
-.cta-button:hover {
-    background-color: var(--secondary-color);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
+.cta-button.large:hover {
+    background: var(--accent-hover);
+    box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.5);
 }
 
  .cta-button.secondary {
@@ -218,8 +249,10 @@ body {
  }
 
 .cta-button.large {
-    padding: 20px 60px;
-    font-size: 1.3rem;
+    width: 100%;
+    text-align: center;
+    background: var(--secondary-color);
+    box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.4);
 }
 
 .social-proof {
@@ -251,16 +284,18 @@ body {
 }
 
 .testimonial-card {
-    background: white;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(8px); /* Glass effect */
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .testimonial-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.12);
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--accent-color);
 }
 
 .stars {
@@ -319,17 +354,20 @@ body {
 }
 
 .pain-item {
-    background: white;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(8px); /* Glass effect */
     padding: 30px;
     border-radius: 12px;
     text-align: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
- .pain-item:hover {
-     transform: translateY(-3px);
-     transition: transform 0.25s ease;
- }
+.pain-item:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--accent-color);
+}
 
 .pain-icon {
     margin-bottom: 16px;
@@ -377,20 +415,25 @@ body {
 
 .benefit-card {
     padding: 32px;
-    background: var(--light-bg);
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(8px); /* Glass effect */
     border-radius: 12px;
-    transition: all 0.2s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     border: 1px solid var(--border-color);
 }
 
 .benefit-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
     border-color: var(--accent-color);
 }
 
 .benefit-icon {
     margin-bottom: 20px;
+    background: var(--hero-bg);
+    padding: 8px;
+    border-radius: 8px;
+    stroke: var(--secondary-color);
 }
 
 .benefit-card h3 {
@@ -634,13 +677,24 @@ body {
 }
 
 .membership-box {
-    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    background: white;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15); /* Deep shadow */
+    position: relative;
+    overflow: hidden;
     padding: 50px 40px;
     border-radius: 20px;
     max-width: 550px;
     margin: 0 auto;
-    border: 2px solid var(--accent-color);
-    box-shadow: 0 20px 50px rgba(59, 130, 246, 0.15);
+}
+
+/* A colored top bar to add branding */
+.membership-box::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
 }
 
 .price-tag {
@@ -808,6 +862,18 @@ footer p {
     font-size: 0.9rem;
     line-height: 1.6;
     opacity: 0.8;
+}
+
+/* Scroll reveal animations */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 @media (max-width: 968px) {
