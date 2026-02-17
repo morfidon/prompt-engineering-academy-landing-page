@@ -550,11 +550,22 @@ body {
     color: var(--text-dark);
 }
 
-.level-up-subtitle {
-    font-size: 1.2rem;
+.level-up.hero-subtitle {
+    font-size: 1.25rem;
     color: var(--text-light);
-    max-width: 700px;
-    margin: 0 auto;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+.level-up .hero-format {
+    font-size: 1.1rem;
+    color: var(--accent-color);
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: rgba(99, 102, 241, 0.1);
+    border-left: 4px solid var(--accent-color);
+    border-radius: 8px;
+    font-weight: 600;
 }
 
 .key-features {
