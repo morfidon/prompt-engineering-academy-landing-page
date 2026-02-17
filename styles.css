@@ -1993,7 +1993,7 @@ footer p {
 /* Before/After Section */
 .before-after-section {
     padding: 100px 0;
-    background: var(--gradient-3); /* Learn Community gradient 3 */
+    background: var(--gradient-2); /* Use lighter gradient for better readability */
     border-top: 1px solid var(--border-color);
 }
 
@@ -2543,7 +2543,7 @@ footer p {
 /* Not Sure If This Is For You Section */
 .not-sure-section {
     padding: 80px 0;
-    background: var(--gradient-4); /* Learn Community gradient 4 */
+    background: var(--gradient-1); /* Use lighter gradient for better readability */
     border-top: 1px solid var(--border-color);
     border-bottom: 1px solid var(--border-color);
 }
