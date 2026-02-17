@@ -209,4 +209,46 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', updateFloatingCta, { passive: true });
     window.addEventListener('resize', updateFloatingCta);
     updateFloatingCta();
+
+    // Instructor image click handler
+    const instructorImage = document.getElementById('instructor-image');
+    const imageOverlay = document.querySelector('.image-overlay');
+    
+    if (instructorImage && imageOverlay) {
+        const showInstructorDetails = () => {
+            // Scroll to the author credibility section for more details
+            const credibilitySection = document.querySelector('.author-credibility');
+            if (credibilitySection) {
+                credibilitySection.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+                
+                // Add highlight effect
+                credibilitySection.style.transition = 'box-shadow 0.3s ease';
+                credibilitySection.style.boxShadow = '0 0 30px rgba(99, 102, 241, 0.3)';
+                
+                // Remove highlight after 2 seconds
+                setTimeout(() => {
+                    credibilitySection.style.boxShadow = '';
+                }, 2000);
+            }
+        };
+
+        instructorImage.addEventListener('click', showInstructorDetails);
+        imageOverlay.addEventListener('click', showInstructorDetails);
+
+        // Add keyboard support
+        instructorImage.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                showInstructorDetails();
+            }
+        });
+
+        // Make image accessible
+        instructorImage.setAttribute('role', 'button');
+        instructorImage.setAttribute('tabindex', '0');
+        instructorImage.setAttribute('aria-label', 'Click to learn more about the instructor');
+    }
 });
