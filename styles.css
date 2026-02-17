@@ -1371,8 +1371,57 @@ footer p {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 60px;
-    max-width: 1200px;
+    align-items: center;
     margin: 0 auto;
+}
+
+.author-image-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.author-image {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.author-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+}
+
+.author-image-container:hover .image-overlay {
+    opacity: 1;
+}
+
+.overlay-text {
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: center;
+    padding: 20px;
 }
 
 .author-info h2 {
@@ -1584,6 +1633,10 @@ footer p {
     .author-content {
         grid-template-columns: 1fr;
         gap: 40px;
+    }
+    
+    .author-image-container {
+        max-width: 300px;
     }
     
     .author-info h2 {
