@@ -170,31 +170,8 @@ body {
     border: 1px solid var(--border-color);
     box-shadow: var(--shadow-lg);
     border-radius: 12px;
-    position: relative;
     overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Pseudo-elements to simulate chat bubbles */
-.placeholder-image::before {
-    content: "";
-    position: absolute;
-    top: 60px; left: 20px;
-    width: 60%; height: 12px;
-    background: #e2e8f0;
-    border-radius: 6px;
-    box-shadow: 0 20px 0 #e2e8f0; /* Second line */
-}
-.placeholder-image::after {
-    content: "";
-    position: absolute;
-    top: 120px; right: 20px;
-    width: 70%; height: 40px;
-    background: var(--hero-bg);
-    border-radius: 8px;
-    border: 1px solid #c7d2fe;
+    object-fit: cover;
 }
 
 .cta-button {
