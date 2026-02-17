@@ -2267,7 +2267,13 @@ footer p {
     color: var(--accent-color);
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 12px;
+}
+
+.outcome-item h4 svg {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
 }
 
 .outcome-item p {
