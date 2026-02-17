@@ -165,6 +165,13 @@ body {
     color: #ffffff; /* White text on dark background */
 }
 
+.hero-format {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    color: rgba(255, 255, 255, 0.9); /* Light white text for dark background */
+    line-height: 1.6;
+}
+
  .cta-group {
      display: flex;
      align-items: center;
